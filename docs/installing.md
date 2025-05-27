@@ -31,12 +31,12 @@ uv pip install comfy-cli --system
 
 # Create and activate venvflux
 cd comfyflux
-python -m venvflux /workspace/venvflux
+python -m venv /workspace/venvflux
 source /workspace/venvflux/bin/activate
 
 # Install Torch 
-pip install --no-cache-dir torch==2.6.0+cu126 --index-url https://download.pytorch.org/whl/cu126 --no-deps
-pip install --no-cache-dir torchvision==0.21.0+cu126 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu126
+pip install --no-cache-dir torch==2.6.0+cu124 --index-url https://download.pytorch.org/whl/cu124 --no-deps
+pip install --no-cache-dir torchvision==0.21.0+cu124 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
 
 # Install ComfyUI
 pip install -r requirements.txt
@@ -50,6 +50,12 @@ pip install -r requirements.txt
 git clone https://github.com/kijai/ComfyUI-KJNodes.git custom_nodes/ComfyUI-KJNodes
 cd custom_nodes/ComfyUI-KJNodes
 pip install -r requirements.txt
+
+# Installing rg-three nodes
+git clone https://github.com/rgthree/rgthree-comfy.git custom_nodes/rgthree-comfy
+cd custom_nodes/rgthree-comfy
+pip install -r requirements.txt
+
 ```
 2. Install the Serverless dependencies:
 ```bash
@@ -61,7 +67,7 @@ pip install triton
 3. Download models:
 ```bash
 cd /workspace/comfyflux
-mkdir -p models/vae models/unet models/clip
+mkdir -p models/vae models/unet models/clip models/text_encoders
 # set your access token below
 HUGGINGFACE_ACCESS_TOKEN=
 
@@ -69,6 +75,36 @@ wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/u
 aria2c -x16 -s16 -d /workspace/comfyflux/models/clip -o clip_l.safetensors --continue=true https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors
 aria2c -x16 -s16 -d /workspace/comfyflux/models/clip -o t5xxl_fp8_e4m3fn.safetensors --continue=true https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors
 wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/vae/ae.safetensors https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors
+
+# hi-dream-e1
+aria2c -x16 -s16 -d /workspace/comfyflux/models/diffusion_models -o hidream_e1_full_bf16-Q8_0.gguf --continue=true https://huggingface.co/ND911/HiDream_e1_full_bf16-ggufs/resolve/main/hidream_e1_full_bf16-Q8_0.gguf
+
+aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o clip_l_hidream.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_l_hidream.safetensors
+
+aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o clip_g_hidream.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_g_hidream.safetensors
+
+aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o llama_3.1_8b_instruct_fp8_scaled.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/llama_3.1_8b_instruct_fp8_scaled.safetensors
+
+# LORAs
+aria2c -x16 -s16 -d /workspace/comfyflux/models/loras -o flux-turbo-alpha.safetensors --continue=true https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors
+
+
+# Download LORAs from civitai like so:
+wget -O ./${filename}.safetensors "https://civitai.com/api/download/models/${modelID}$?type=Model&format=SafeTensor&token=${token}"
+
+wget -O ./flux_anal_cowgirl.safetensors "https://civitai.com/api/download/models/1078264?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+
+wget -O ./Flux_doggy_anal.safetensors "https://civitai.com/api/download/models/1047274?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+
+wget -O ./FLUX_missio_pussy_v2.safetensors "https://civitai.com/api/download/models/1040415?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+
+wget -O ./woman_dildo_flux_sevenof9_v1.safetensors "https://civitai.com/api/download/models/937813?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+
+wget -O ./blow_flux_v2_Sevenof9.safetensors "https://civitai.com/api/download/models/740872?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+
+wget -O /workspace/comfyflux/models/loras/comfyui_portrait_lora64.safetensors https://huggingface.co/ali-vilab/ACE_Plus/resolve/main/portrait/comfyui_portrait_lora64.safetensors
+
+wget -O /workspace/comfyflux/models/loras/comfyui_subject_lora16.safetensors https://huggingface.co/ali-vilab/ACE_Plus/resolve/main/subject/comfyui_subject_lora16.safetensors
 
 ```
 6. Create logs directory:
