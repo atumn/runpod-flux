@@ -9,21 +9,9 @@
       "title": "UNETLoader"
     }
   },
-  "4": {
-    "inputs": {
-      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
-      "clip_name2": "clip_l.safetensors",
-      "type": "flux",
-      "device": "default"
-    },
-    "class_type": "DualCLIPLoader",
-    "_meta": {
-      "title": "DualCLIPLoader"
-    }
-  },
   "5": {
     "inputs": {
-      "text": "Create a picture of a busy street in mongolia, with mongolian yurts and bustling streets, Focus on capturing the contrast between light and shadow and add sharp lines with rich textures.",
+      "text": "make a picture of a mongolian woman posing sexy, spread her legs showing her pussy, touching her vulva, licking her lips, pussy, vulva, naked, dildoing herself on couch, dildo,",
       "clip": [
         "20",
         1
@@ -49,7 +37,7 @@
   },
   "7": {
     "inputs": {
-      "noise_seed": 807776968243037
+      "noise_seed": 665058931215665
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -214,7 +202,7 @@
         0
       ],
       "clip": [
-        "4",
+        "26",
         0
       ]
     },
@@ -237,6 +225,17 @@
     "class_type": "TeaCache",
     "_meta": {
       "title": "TeaCache"
+    }
+  },
+  "26": {
+    "inputs": {
+      "clip_name1": "converted-flan-t5-xxl-Q5_K_M.gguf",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    },
+    "class_type": "DualCLIPLoaderGGUF",
+    "_meta": {
+      "title": "DualCLIPLoader (GGUF)"
     }
   }
 }

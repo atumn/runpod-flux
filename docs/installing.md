@@ -73,7 +73,9 @@ HUGGINGFACE_ACCESS_TOKEN=
 
 wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/unet/flux1-dev.safetensors https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/flux1-dev.safetensors
 aria2c -x16 -s16 -d /workspace/comfyflux/models/clip -o clip_l.safetensors --continue=true https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors
-aria2c -x16 -s16 -d /workspace/comfyflux/models/clip -o t5xxl_fp8_e4m3fn.safetensors --continue=true https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors
+
+aria2c -x16 -s16 -d /workspace/comfyflux/models/clip -o converted-flan-t5-xxl-Q5_K_M.gguf  --continue=true https://huggingface.co/dumb-dev/flan-t5-xxl-gguf/resolve/main/Q5/converted-flan-t5-xxl-Q5_K_M.gguf
+
 wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/vae/ae.safetensors https://huggingface.co/black-forest-labs/FLUX.1-dev/resolve/main/ae.safetensors
 
 # hi-dream-e1
@@ -83,7 +85,9 @@ aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o clip_l_hidream.
 
 aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o clip_g_hidream.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_g_hidream.safetensors
 
-aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o llama_3.1_8b_instruct_fp8_scaled.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/llama_3.1_8b_instruct_fp8_scaled.safetensors
+# aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o llama_3.1_8b_instruct_fp8_scaled.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/llama_3.1_8b_instruct_fp8_scaled.safetensors
+
+aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o llama-3-8b-instruct-abliterated-dpomix.Q8_0.gguf --continue=true https://huggingface.co/mlabonne/Llama-3-8B-Instruct-abliterated-dpomix-GGUF/resolve/main/llama-3-8b-instruct-abliterated-dpomix.Q8_0.gguf
 
 # LORAs
 aria2c -x16 -s16 -d /workspace/comfyflux/models/loras -o flux-turbo-alpha.safetensors --continue=true https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors
@@ -92,15 +96,15 @@ aria2c -x16 -s16 -d /workspace/comfyflux/models/loras -o flux-turbo-alpha.safete
 # Download LORAs from civitai like so:
 wget -O ./${filename}.safetensors "https://civitai.com/api/download/models/${modelID}$?type=Model&format=SafeTensor&token=${token}"
 
-wget -O ./flux_anal_cowgirl.safetensors "https://civitai.com/api/download/models/1078264?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+wget -O ./flux_anal_cowgirl.safetensors "https://civitai.com/api/download/models/1078264?type=Model&format=SafeTensor&token=${token}"
 
-wget -O ./Flux_doggy_anal.safetensors "https://civitai.com/api/download/models/1047274?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+wget -O ./Flux_doggy_anal.safetensors "https://civitai.com/api/download/models/1047274?type=Model&format=SafeTensor&token=${token}"
 
-wget -O ./FLUX_missio_pussy_v2.safetensors "https://civitai.com/api/download/models/1040415?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+wget -O ./FLUX_missio_pussy_v2.safetensors "https://civitai.com/api/download/models/1040415?type=Model&format=SafeTensor&token=${token}"
 
-wget -O ./woman_dildo_flux_sevenof9_v1.safetensors "https://civitai.com/api/download/models/937813?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+wget -O ./woman_dildo_flux_sevenof9_v1.safetensors "https://civitai.com/api/download/models/937813?type=Model&format=SafeTensor&token=${token}"
 
-wget -O ./blow_flux_v2_Sevenof9.safetensors "https://civitai.com/api/download/models/740872?type=Model&format=SafeTensor&token=65343cbd1e588603a3686e502d7eb8d6"
+wget -O ./blow_flux_v2_Sevenof9.safetensors "https://civitai.com/api/download/models/740872?type=Model&format=SafeTensor&token=${token}"
 
 wget -O /workspace/comfyflux/models/loras/comfyui_portrait_lora64.safetensors https://huggingface.co/ali-vilab/ACE_Plus/resolve/main/portrait/comfyui_portrait_lora64.safetensors
 

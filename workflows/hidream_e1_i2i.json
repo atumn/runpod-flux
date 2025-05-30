@@ -1,9 +1,9 @@
 {
   "6": {
     "inputs": {
-      "text": "make this place more lush",
+      "text": "convert this photo into a anime style, very detailed, keep the woman and toddler as realistic as possible",
       "clip": [
-        "42",
+        "59",
         0
       ]
     },
@@ -16,7 +16,7 @@
     "inputs": {
       "text": "Bad anatomy, Bad proportions, Deformed, Disconnected limbs, Disfigured, Extra arms, Extra limbs, Extra hands, Fused fingers, Gross proportions, Long neck, Malformed limbs, Mutated, Mutated hands, Mutated limbs, Missing arms, Missing fingers, Poorly drawn hands, Poorly drawn face",
       "clip": [
-        "42",
+        "59",
         0
       ]
     },
@@ -63,18 +63,6 @@
       "title": "Load Image"
     }
   },
-  "42": {
-    "inputs": {
-      "clip_name1": "clip_g_hidream.safetensors",
-      "clip_name2": "clip_l_hidream.safetensors",
-      "clip_name3": "t5xxl_fp8_e4m3fn.safetensors",
-      "clip_name4": "llama_3.1_8b_instruct_fp8_scaled.safetensors"
-    },
-    "class_type": "QuadrupleCLIPLoader",
-    "_meta": {
-      "title": "QuadrupleCLIPLoader"
-    }
-  },
   "43": {
     "inputs": {
       "vae_name": "ae.safetensors"
@@ -111,7 +99,7 @@
   },
   "47": {
     "inputs": {
-      "noise_seed": 113538168647754
+      "noise_seed": 946062177586063
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -120,8 +108,8 @@
   },
   "49": {
     "inputs": {
-      "scheduler": "normal",
-      "steps": 22,
+      "scheduler": "simple",
+      "steps": 28,
       "denoise": 1,
       "model": [
         "57",
@@ -218,6 +206,18 @@
     "class_type": "UnetLoaderGGUF",
     "_meta": {
       "title": "Unet Loader (GGUF)"
+    }
+  },
+  "59": {
+    "inputs": {
+      "clip_name1": "clip_g_hidream.safetensors",
+      "clip_name2": "clip_l_hidream.safetensors",
+      "clip_name3": "converted-flan-t5-xxl-Q5_K_M.gguf",
+      "clip_name4": "llama-3-8b-instruct-abliterated-dpomix.Q8_0.gguf"
+    },
+    "class_type": "QuadrupleCLIPLoaderGGUF",
+    "_meta": {
+      "title": "QuadrupleCLIPLoader (GGUF)"
     }
   }
 }
