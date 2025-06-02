@@ -1,7 +1,7 @@
 {
   "6": {
     "inputs": {
-      "text": "convert this photo into a anime style, very detailed, keep the woman and toddler as realistic as possible",
+      "text": "make the girl into a realistic photo",
       "clip": [
         "59",
         0
@@ -43,7 +43,7 @@
   },
   "9": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "hidreame1i2i",
       "images": [
         "8",
         0
@@ -56,7 +56,7 @@
   },
   "13": {
     "inputs": {
-      "image": "sss.png"
+      "image": "serpent_reverie.jpg"
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -99,7 +99,7 @@
   },
   "47": {
     "inputs": {
-      "noise_seed": 946062177586063
+      "noise_seed": 678517227551702
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -112,7 +112,7 @@
       "steps": 28,
       "denoise": 1,
       "model": [
-        "57",
+        "61",
         0
       ]
     },
@@ -150,7 +150,7 @@
       "cfg_conds": 5,
       "cfg_cond2_negative": 2,
       "model": [
-        "57",
+        "61",
         0
       ],
       "cond1": [
@@ -218,6 +218,32 @@
     "class_type": "QuadrupleCLIPLoaderGGUF",
     "_meta": {
       "title": "QuadrupleCLIPLoader (GGUF)"
+    }
+  },
+  "60": {
+    "inputs": {
+      "sage_attention": "auto",
+      "model": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "PathchSageAttentionKJ",
+    "_meta": {
+      "title": "Patch Sage Attention KJ"
+    }
+  },
+  "61": {
+    "inputs": {
+      "enable_fp16_accumulation": true,
+      "model": [
+        "60",
+        0
+      ]
+    },
+    "class_type": "ModelPatchTorchSettings",
+    "_meta": {
+      "title": "Model Patch Torch Settings"
     }
   }
 }

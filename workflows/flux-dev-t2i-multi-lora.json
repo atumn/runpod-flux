@@ -11,7 +11,7 @@
   },
   "5": {
     "inputs": {
-      "text": "make a picture of a mongolian woman posing sexy, spread her legs showing her pussy, touching her vulva, licking her lips, pussy, vulva, naked, dildoing herself on couch, dildo,",
+      "text": "Capture a portrait in an urban setting at night with neon lights reflecting a din street. The subject should be softly lit by the neon signs in the background with a sharp focus on their face.",
       "clip": [
         "20",
         1
@@ -37,7 +37,7 @@
   },
   "7": {
     "inputs": {
-      "noise_seed": 665058931215665
+      "noise_seed": 306265750231182
     },
     "class_type": "RandomNoise",
     "_meta": {
@@ -150,7 +150,7 @@
   },
   "15": {
     "inputs": {
-      "filename_prefix": "flux-dev-turbo-alpha",
+      "filename_prefix": "fluxdevt2i",
       "images": [
         "14",
         0
@@ -198,7 +198,7 @@
       },
       "➕ Add Lora": "",
       "model": [
-        "1",
+        "28",
         0
       ],
       "clip": [
@@ -236,6 +236,32 @@
     "class_type": "DualCLIPLoaderGGUF",
     "_meta": {
       "title": "DualCLIPLoader (GGUF)"
+    }
+  },
+  "27": {
+    "inputs": {
+      "sage_attention": "auto",
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "PathchSageAttentionKJ",
+    "_meta": {
+      "title": "Patch Sage Attention KJ"
+    }
+  },
+  "28": {
+    "inputs": {
+      "enable_fp16_accumulation": true,
+      "model": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "ModelPatchTorchSettings",
+    "_meta": {
+      "title": "Model Patch Torch Settings"
     }
   }
 }
