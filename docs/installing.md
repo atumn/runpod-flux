@@ -81,6 +81,9 @@ wget -q --header="Authorization: Bearer ${HUGGINGFACE_ACCESS_TOKEN}" -O models/v
 # hi-dream-e1
 aria2c -x16 -s16 -d /workspace/comfyflux/models/diffusion_models -o hidream_e1_full_bf16-Q8_0.gguf --continue=true https://huggingface.co/ND911/HiDream_e1_full_bf16-ggufs/resolve/main/hidream_e1_full_bf16-Q8_0.gguf
 
+# hi-dream-e1.1
+aria2c -x16 -s16 -d /workspace/models/diffusion_models -o hidream_e1_1_bf16_Q8_0.gguf --continue=true https://huggingface.co/ND911/HiDream_E1_1_bf16_ggufs/resolve/main/hidream_e1_1_bf16_Q8_0.gguf
+
 aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o clip_l_hidream.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_l_hidream.safetensors
 
 aria2c -x16 -s16 -d /workspace/comfyflux/models/text_encoders -o clip_g_hidream.safetensors --continue=true https://huggingface.co/Comfy-Org/HiDream-I1_ComfyUI/resolve/main/split_files/text_encoders/clip_g_hidream.safetensors
