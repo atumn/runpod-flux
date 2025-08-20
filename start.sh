@@ -24,7 +24,7 @@ if [ -d "/runpod-volume" ]; then
 
   # python main.py --port 3000 --use-sage-attention > /workspace/logs/comfyflux.log 2>&1 &
   # make sure to use full path. otherwise the base will change to /runpod-volume
-  python -u /workspace/comfyflux/main.py --port 3000 --use-sage-attention --base-directory /workspace/comfyflux --disable-auto-launch --disable-metadata --verbose "${COMFY_LOG_LEVEL}" --log-stdout &
+  python -u /workspace/comfyflux/main.py --port 3000 --base-directory /workspace/comfyflux --disable-auto-launch --disable-metadata --verbose "${COMFY_LOG_LEVEL}" --log-stdout &
   # deactivate
 
   echo "worker-comfyui: Starting RunPod Handler"
