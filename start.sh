@@ -22,7 +22,7 @@ if [ -d "/runpod-volume" ]; then
   # Allow operators to tweak verbosity; default is INFO.
   : "${COMFY_LOG_LEVEL:=INFO}"
 
-  # python main.py --port 3000 --use-sage-attention > /workspace/logs/comfyflux.log 2>&1 &
+  # python main.py --port 3000 > /workspace/logs/comfyflux.log 2>&1 &
   # make sure to use full path. otherwise the base will change to /runpod-volume
   python -u /workspace/comfyflux/main.py --port 3000 --base-directory /workspace/comfyflux --disable-auto-launch --disable-metadata --verbose "${COMFY_LOG_LEVEL}" --log-stdout &
   # deactivate
