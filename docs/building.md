@@ -28,3 +28,7 @@ apt-get update && apt-get install -y --no-install-recommends \
    && ln -sf /usr/local/bin/pip /usr/bin/pip \
    && ln -sf /usr/local/bin/pip /usr/bin/pip3 
 ```
+# to run from pod
+```bash
+python main.py --listen --port 3000 # port optional
+```

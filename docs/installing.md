@@ -80,7 +80,7 @@ aria2c -x16 -s16 -d /workspace/models/text_encoders -o qwen_2.5_vl_7b_fp8_scaled
 aria2c -x16 -s16 -d /workspace/models/vae -o qwen_image_vae.safetensors --continue=true https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors
 
 # qwen image edit
-aria2c -x16 -s16 -d /workspace/models/diffusion_models -o Qwen_Image_Edit-Q6_K.gguf --continue=true https://huggingface.co/QuantStack/Qwen-Image-Edit-GGUF/resolve/main/Qwen_Image_Edit-Q6_K.gguf
+aria2c -x16 -s16 -d /workspace/models/diffusion_models -o Qwen-Image-Edit-2509-Q6_K.gguf --continue=true https://huggingface.co/QuantStack/Qwen-Image-Edit-2509-GGUF/resolve/main/Qwen-Image-Edit-2509-Q6_K.gguf
 
 # qwen lightning lora(8 steps) for qwen image:
 aria2c -x16 -s16 -d /workspace/models/loras -o Qwen-Image-Lightning-8steps-V1.1.safetensors --continue=true https://huggingface.co/lightx2v/Qwen-Image-Lightning/resolve/main/Qwen-Image-Lightning-8steps-V1.1.safetensors
